@@ -1,0 +1,55 @@
+.cursor,
+.cursor2 {
+  position: fixed;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .cursor,
+  .cursor2 {
+    display: none;
+  }
+}
+.cursor {
+  background-color: #99e1ff;
+  height: 5px;
+  width: 5px;
+  z-index: 99999;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  mix-blend-mode: difference;
+}
+.cursor2 {
+  background-image: url('../images/cursor-border.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+  z-index: 99998;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  mix-blend-mode: difference;
+  animation: cursor2rotation 5s infinite linear;
+}
+.cursor2.hover {
+  width: 0;
+  height: 0;
+}
+
+@keyframes cursor2rotation {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
